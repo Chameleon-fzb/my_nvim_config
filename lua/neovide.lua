@@ -1,9 +1,3 @@
--- vim.cmd[[
--- if exists("g:neovide")
---
--- endif
--- ]]
-
 if not vim.g.neovide then
 	return
 end
