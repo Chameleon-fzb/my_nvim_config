@@ -3,9 +3,6 @@ return {
 	lazy = true,
 	version = "<CurrentMajor>.*",
 	build = "make install_jsregexp",
-	config = function()
-		require("luasnip.loaders.from_vscode").lazy_load("~/.config/nvim/lua/lsp/friendly-snippets")
-	end,
 	opts = {
 		history = true,
 		delete_check_events = "TextChanged",
@@ -22,4 +19,8 @@ return {
     { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
     { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
   },
+	config = function(_, opts)
+		require("luasnip").setup(opts)
+		require("luasnip.loaders.from_vscode").lazy_load("~/.config/nvim/lua/lsp/friendly-snippets/snippets")
+	end,
 }
