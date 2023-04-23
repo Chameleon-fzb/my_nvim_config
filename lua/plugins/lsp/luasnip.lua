@@ -21,6 +21,7 @@ return {
   },
 	config = function(_, opts)
 		require("luasnip").setup(opts)
-		require("luasnip.loaders.from_vscode").lazy_load("~/.config/nvim/lua/lsp/friendly-snippets/snippets")
+		require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/lua/friendly-snippets" })
+		require("luasnip.loaders.from_vscode").lazy_load({ paths = "~/.config/nvim/lua/snippets" })
 	end,
 }

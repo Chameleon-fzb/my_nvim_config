@@ -1,14 +1,17 @@
 local M = {}
 function r(client)
-	return require("plugins.lsp.config.".. client)
+	return require("plugins.lsp.config." .. client)
 end
 
 M.html = r("html")
-M.css = r("css")
-M.json = r("json")
-M.lua = r("lua")
+M.cssls = r("css")
+M.cssmodules_ls = r("cssmodules_ls")
+M.jsonls = r("json")
+M.lua_ls = r("lua")
 M.emmet_ls = r("emmet_ls")
 M.ts = r("typescript")
-M.go = r("go")
+M.gopls = r("go")
+M.volar = r("vue")
+M.tailwindcss = r("tailwindcss")
 -- M.eslint = r('eslint')
 return M
