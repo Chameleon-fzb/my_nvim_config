@@ -6,7 +6,8 @@ return {
 
 		local myServer = require("plugins.lsp.config.myServer")
 		local MyServer = {}
-		for server, _ in pairs(myServer) do
+		for key, value in pairs(myServer) do
+			local server = (type(key) == "number" and value) or key
 			table.insert(MyServer, server)
 		end
 		mason_lspconfig.setup({

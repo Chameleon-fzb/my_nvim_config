@@ -3,27 +3,14 @@ local function r(client)
 	return require("plugins.lsp.config." .. client)
 end
 local myServer = require("plugins.lsp.config.myServer")
-for server, conf in pairs(myServer) do
-	local enable = conf.enable or true
-	if enable then
+for key, value in pairs(myServer) do
+	local isNumber = type(key) == "number"
+	local server = (isNumber and value) or key
+	local disable = (isNumber and false) or value.disable
+	if not disable then
 		local status, config = pcall(r, server)
-		if status then
-			M[server] = config
-		else
-			M[server] = {}
-		end
+		M[server] = (status and config) or {}
 	end
 end
--- M.html = r("html")
--- M.cssls = r("cssls")
--- M.cssmodules_ls = r("cssmodules_ls")
--- M.jsonls = r("jsonls")
--- M.lua_ls = r("lua")
--- M.emmet_ls = r("emmet_ls")
--- M.tsserver = r("tsserver")
--- M.gopls = r("gopls")
--- M.volar = r("volar")
--- M.tailwindcss = r("tailwindcss")
--- M.marksman = r("marksman")
--- M.eslint = r('eslint')
+
 return M
