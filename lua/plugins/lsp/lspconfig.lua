@@ -14,20 +14,6 @@ return {
 		for name, config in pairs(M) do
 			nvim_lsp[name].setup(config)
 		end
-		-- nvim_lsp.html.setup(M.html)
-		-- nvim_lsp.emmet_ls.setup(M.emmet_ls)
-		-- nvim_lsp.cssls.setup(M.cssls)
-		-- nvim_lsp.cssmodules_ls.setup(M.cssmodules_ls)
-		-- nvim_lsp.tailwindcss.setup(M.tailwindcss)
-		-- nvim_lsp.jsonls.setup(M.jsonls)
-		-- -- TypeScript
-		-- nvim_lsp.tsserver.setup(M.ts)
-		-- nvim_lsp.lua_ls.setup(M.lua_ls)
-		-- nvim_lsp.gopls.setup(M.gopls)
-		-- nvim_lsp.volar.setup(M.volar)
-		-- nvim_lsp.marksman.setup(M.marksman)
-		-- nvim_lsp.eslint.setup(M.eslint)
-
 		vim.diagnostic.config({
 			virtual_text = true,
 			signs = true,
