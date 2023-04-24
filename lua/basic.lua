@@ -85,7 +85,8 @@ vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 vim.o.showmode = false
 -- 连续键超时配置
-vim.o.timeoutlen = 400
+vim.o.timeoutlen = 350
+vim.o.ttimeoutlen = 100
 vim.g.loaded_perl_provider = 0
 --鼠标事件
 vim.opt.mousemoveevent = true
