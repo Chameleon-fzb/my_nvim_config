@@ -67,7 +67,7 @@ return {
 				vim.cmd("NvimTreeClose")
 			end,
 		})
-		-- --自动关闭
+		----自动关闭
 		-- vim.cmd([[
 		--     autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 		-- ]])
