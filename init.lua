@@ -10,7 +10,7 @@ require("basic")
 require("pluginsInit")
 -- require("neovide")
 -- auto转换 输入法
-require("autoFcitx")
+require("autocmd")
 -- 快捷键映射
 require("keybindings")
 -- 插件配置

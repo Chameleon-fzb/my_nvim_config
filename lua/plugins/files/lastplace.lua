@@ -1,5 +1,6 @@
 return {
 	"ethanholz/nvim-lastplace",
+	enabled = false,
 	lazy = true,
 	event = { "User FileOpened" },
 	config = function()

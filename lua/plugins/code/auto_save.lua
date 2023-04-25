@@ -1,6 +1,7 @@
 --代码自动保存
 return {
 	"okuuva/auto-save.nvim",
+	enabled = false,
 	event = "BufRead",
 	opts = {
 		{

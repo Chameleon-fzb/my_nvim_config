@@ -15,7 +15,6 @@ vim.wo.cursorline = true
 vim.bo.textwidth = 120
 -- 右侧参考线，超过表示代码太长了，考虑换行
 -- vim.wo.colorcolumn = "120"
--- vim.wo.
 -- 缩进2个空格等于一个Tab
 vim.o.tabstop = 2
 vim.bo.tabstop = 2
@@ -57,9 +56,9 @@ vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
 -- smaller updatetime
-vim.o.updatetime = 300
+vim.o.updatetime = 100
 -- 设置 timeoutlen 为等待键盘快捷键连击时间500毫秒，可根据需要设置
-vim.o.timeoutlen = 360
+vim.o.timeoutlen = 350
 -- split window 从下边和右边出现
 vim.o.splitbelow = true
 vim.o.splitright = true
@@ -84,8 +83,6 @@ vim.o.pumheight = 10
 vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 vim.o.showmode = false
--- 连续键超时配置
-vim.o.timeoutlen = 350
 vim.o.ttimeoutlen = 100
 vim.g.loaded_perl_provider = 0
 --鼠标事件
@@ -94,6 +91,7 @@ vim.opt.mousemoveevent = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 --剪贴板
-vim.cmd([[
-set clipboard +=unnamedplus
-]])
+-- vim.cmd([[
+-- set clipboard +=unnamedplus
+-- ]])
+vim.o.clipboard = vim.o.clipboard .. "unnamedplus"
