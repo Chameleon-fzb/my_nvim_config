@@ -3,7 +3,7 @@ return {
 	"bashls",
 	"cssls",
 	"cssmodules_ls",
-	eslint = { enable = false },
+	eslint = { disable = true },
 	"emmet_ls",
 	"html",
 	"jsonls",

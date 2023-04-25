@@ -12,6 +12,12 @@ return function(conf)
 					vim.cmd("silent! wall")
 				end)
 			)
+			vim.api.nvim_create_autocmd("InsertEnter", {
+				pattern = { "*" },
+				callback = function()
+					vim.loop.timer_stop(timer)
+				end,
+			})
 		end,
 		nested = true,
 	})
