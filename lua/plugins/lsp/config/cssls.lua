@@ -9,6 +9,23 @@ return {
 		"css",
 		"scss",
 		"less",
-		"vue",
+		-- "vue",
+	},
+	settings = {
+		scss = {
+			lint = {
+				unknownAtRules = "ignore",
+			},
+		},
+		css = {
+			lint = {
+				unknownAtRules = "ignore",
+			},
+		},
+		less = {
+			lint = {
+				unknownAtRules = "ignore",
+			},
+		},
 	},
 }
