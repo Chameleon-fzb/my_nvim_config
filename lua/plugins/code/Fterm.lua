@@ -22,7 +22,7 @@ return {
 		vim.api.nvim_create_user_command("GitPush", function()
 			local Input = require("nui.input")
 			local event = require("nui.utils.autocmd").event
-
+			local FTerm = require("FTerm")
 			local input = Input({
 				position = "50%",
 				size = {
@@ -31,7 +31,7 @@ return {
 				border = {
 					style = "single",
 					text = {
-						top = "[Commit Msg]",
+						top = "[Git Commit Msg]",
 						top_align = "center",
 					},
 				},
@@ -42,12 +42,12 @@ return {
 				prompt = "commitMsg > ",
 				default_value = "",
 				on_close = function()
-					print("Input Closed!")
+					print("Input gitcommitMsg Closed!")
 				end,
 				on_submit = function(value)
-					require("FTerm").run({ "gitcommit ./ '" .. value .. "'" })
-					require("FTerm").toggle()
-					print("End of Commit")
+					FTerm.run({ "gitcommit ./ '" .. value .. "'" })
+					FTerm.toggle()
+					print("End of git Commit")
 				end,
 			})
 			input:mount()
