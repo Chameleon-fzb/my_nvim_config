@@ -20,8 +20,6 @@ return {
 			require("FTerm").scratch({ cmd = { "yarn", "build" } })
 		end, { bang = true })
 		vim.api.nvim_create_user_command("GitPush", function()
-			-- local buf = vim.api.nvim_buf_get_name(0)
-			-- local ftype = vim.filetype.match({ filename = buf })
 			local Input = require("nui.input")
 			local event = require("nui.utils.autocmd").event
 
@@ -47,20 +45,15 @@ return {
 					print("Input Closed!")
 				end,
 				on_submit = function(value)
-					require("FTerm").run({ "git add ./", "\n git commit -m '" .. value .. "'" })
-					-- require("FTerm").scratch({ cmd = { "git", "commit", "-m", value } })
+					require("FTerm").run({ "gitcommit ./ '" .. value .. "'" })
 					require("FTerm").toggle()
+					print("End of Commit")
 				end,
 			})
-
-			-- mount/open the component
 			input:mount()
-
-			-- unmount component when cursor leaves buffer
 			input:on(event.BufLeave, function()
 				input:unmount()
-			end) -- vim.api.nvim_command(":")
-			-- local commitText
+			end)
 		end, { bang = true })
 	end,
 }
