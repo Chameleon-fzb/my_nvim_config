@@ -23,36 +23,74 @@ return {
 			local Input = require("nui.input")
 			local event = require("nui.utils.autocmd").event
 			local FTerm = require("FTerm")
-			local input = Input({
-				position = "50%",
-				size = {
-					width = 60,
-				},
-				border = {
-					style = "single",
-					text = {
-						top = "[Git Commit Msg]",
-						top_align = "center",
+			local create_input = function(title, prompt, on_close, on_submit)
+				return Input({
+					position = "50%",
+					size = {
+						width = 60,
 					},
-				},
-				win_options = {
-					winhighlight = "Normal:Normal,FloatBorder:Normal",
-				},
-			}, {
-				prompt = "commitMsg > ",
-				default_value = "",
-				on_close = function()
-					print("Input gitcommitMsg Closed!")
-				end,
-				on_submit = function(value)
-					FTerm.run({ "gitcommit ./ '" .. value .. "'" })
+					border = {
+						style = "single",
+						text = {
+							top = title,
+							top_align = "center",
+						},
+					},
+					win_options = {
+						winhighlight = "Normal:Normal,FloatBorder:Normal",
+					},
+				}, {
+					prompt = prompt,
+					default_value = "",
+					on_close = on_close,
+					on_submit = on_submit,
+				})
+			end
+			local git_add_src = create_input("[Git-add-src]", "addSrc>", function()
+				print("Input add src closed!")
+			end, function(src)
+				local git_commit_msg = create_input("[Git-commit-msg]", "commitMsg", function()
+					print("Input commit msg closed!")
+				end, function(msg)
+					FTerm.run({ "gitcommit " .. src .. " '" .. msg .. "'" })
 					FTerm.toggle()
 					print("End of git Commit")
-				end,
-			})
-			input:mount()
-			input:on(event.BufLeave, function()
-				input:unmount()
+				end)
+				git_commit_msg:mount()
+				git_commit_msg:on(event.BufLeave, function()
+					git_commit_msg:unmount()
+				end)
+			end)
+			-- local gitAdd = Input({
+			-- 	position = "50%",
+			-- 	size = {
+			-- 		width = 60,
+			-- 	},
+			-- 	border = {
+			-- 		style = "single",
+			-- 		text = {
+			-- 			top = "[Git Commit Msg]",
+			-- 			top_align = "center",
+			-- 		},
+			-- 	},
+			-- 	win_options = {
+			-- 		winhighlight = "Normal:Normal,FloatBorder:Normal",
+			-- 	},
+			-- }, {
+			-- 	prompt = "commitMsg > ",
+			-- 	default_value = "",
+			-- 	on_close = function()
+			-- 		print("Input gitcommitMsg Closed!")
+			-- 	end,
+			-- 	on_submit = function(value)
+			-- 		FTerm.run({ "gitcommit ./ '" .. value .. "'" })
+			-- 		FTerm.toggle()
+			-- 		print("End of git Commit")
+			-- 	end,
+			-- })
+			git_add_src:mount()
+			git_add_src:on(event.BufLeave, function()
+				git_add_src:unmount()
 			end)
 		end, { bang = true })
 	end,
