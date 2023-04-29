@@ -21,7 +21,7 @@ return {
 
 		local gitui = FTerm:new({
 			ft = "FTerm_gitui",
-			cmd = "lazygit",
+			cmd = "gitui",
 			dimensions = {
 				height = 0.8,
 				width = 0.8,
