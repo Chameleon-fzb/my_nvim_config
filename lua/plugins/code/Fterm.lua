@@ -6,7 +6,7 @@ return {
 		{ "<A-i>", "<cmd>lua require('FTerm').toggle()<cr>" },
 		{ "<A-i>", mode = { "t" }, "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>" },
 		{ "yb", "<cmd>YarnBuild<cr>" },
-		{ "<leader>gc", "GitCommit" },
+		{ "<A-g>", "<cmd>GitCommit<cr>" },
 	},
 	command = { "YarnBuild", "GitCommit" },
 	config = function()
