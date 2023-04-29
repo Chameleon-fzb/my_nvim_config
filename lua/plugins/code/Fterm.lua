@@ -6,26 +6,39 @@ return {
 		{ "<A-i>", "<cmd>lua require('FTerm').toggle()<cr>" },
 		{ "<A-i>", mode = { "t" }, "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>" },
 		{ "yb", "<cmd>YarnBuild<cr>" },
-		{ "<A-g>", "<cmd>GitCommit<cr>" },
+		{ "<A-g>", mode = { "t" }, "<C-\\><C-n>lua gitui:toggle()" },
 	},
 	command = { "YarnBuild", "GitCommit" },
 	config = function()
-		require("FTerm").setup({
+		local FTerm = require("FTerm")
+		FTerm.setup({
 			dimensions = {
 				height = 0.6,
 				width = 0.6,
 			},
 		})
+
+		local gitui = FTerm:new({
+			ft = "FTerm_gitui", -- You can also override the default filetype, if you want
+			cmd = "gitui",
+			dimensions = {
+				height = 0.8,
+				width = 0.8,
+			},
+		})
+		-- Use this to toggle gitui in a floating terminal
+		vim.keymap.set("n", "<A-g>", function()
+			gitui:toggle()
+		end)
 		vim.api.nvim_create_user_command("Gitui", function()
-			require("FTerm").scratch({ cmd = "gitui" })
+			FTerm.scratch({ cmd = "gitui" })
 		end, { bang = true })
 		vim.api.nvim_create_user_command("YarnBuild", function()
-			require("FTerm").scratch({ cmd = { "yarn", "build" } })
+			FTerm.scratch({ cmd = { "yarn", "build" } })
 		end, { bang = true })
 		vim.api.nvim_create_user_command("GitCommit", function()
 			local Input = require("nui.input")
 			local event = require("nui.utils.autocmd").event
-			local FTerm = require("FTerm")
 			local create_input = function(title, prompt, on_close, on_submit)
 				return Input({
 					position = "50%",
