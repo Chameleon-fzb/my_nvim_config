@@ -20,7 +20,7 @@ return {
 
 		local gitui = FTerm:new({
 			ft = "FTerm_gitui", -- You can also override the default filetype, if you want
-			cmd = "gitui",
+			cmd = "lazygit",
 			dimensions = {
 				height = 0.8,
 				width = 0.8,
