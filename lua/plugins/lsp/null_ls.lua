@@ -1,10 +1,3 @@
--- local with_root_file = function(...)
---     local files = { ... }
---     return function(utils)
---         return utils.root_has_file(files)
---     end
--- end
-
 return {
 	"jose-elias-alvarez/null-ls.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },

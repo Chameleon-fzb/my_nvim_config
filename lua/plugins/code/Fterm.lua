@@ -7,7 +7,7 @@ return {
 		{ "<A-i>", mode = { "t" }, "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>" },
 		{ "yb", "<cmd>YarnBuild<cr>" },
 		{ "<A-g>", mode = { "t" }, "<C-\\><C-n>lua gitui:toggle()" },
-		{ "<A-g>", "<cmd>GitPush<cr>" },
+		{ "<A-1>", "<cmd>GitPush<cr>" },
 	},
 	command = { "YarnBuild", "GitPush" },
 	config = function()
