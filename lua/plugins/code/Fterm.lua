@@ -19,14 +19,13 @@ return {
 		})
 
 		local gitui = FTerm:new({
-			ft = "FTerm_gitui", -- You can also override the default filetype, if you want
+			ft = "FTerm_gitui",
 			cmd = "lazygit",
 			dimensions = {
 				height = 0.8,
 				width = 0.8,
 			},
 		})
-		-- Use this to toggle gitui in a floating terminal
 		vim.keymap.set("n", "<A-g>", function()
 			gitui:toggle()
 		end)
@@ -65,7 +64,7 @@ return {
 				local git_commit_msg = create_input("[Git-commit-msg]", "commitMsg >", function()
 					print("Input commit msg closed!")
 				end, function(msg)
-					FTerm.run({ "gitcommit " .. src .. " '" .. msg .. "'" })
+					FTerm.run({ "gitcommit " .. src .. " '" .. msg .. "'" .. "\n git push" })
 					FTerm.toggle()
 					print("End of git Commit")
 				end)
