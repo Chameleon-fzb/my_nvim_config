@@ -7,8 +7,9 @@ return {
 		{ "<A-i>", mode = { "t" }, "<C-\\><C-n><CMD>lua require('FTerm').toggle()<CR>" },
 		{ "yb", "<cmd>YarnBuild<cr>" },
 		{ "<A-g>", mode = { "t" }, "<C-\\><C-n>lua gitui:toggle()" },
+		{ "<A-g>", "<cmd>GitPush<cr>" },
 	},
-	command = { "YarnBuild", "GitCommit" },
+	command = { "YarnBuild", "GitPush" },
 	config = function()
 		local FTerm = require("FTerm")
 		FTerm.setup({
@@ -32,7 +33,7 @@ return {
 		vim.api.nvim_create_user_command("YarnBuild", function()
 			FTerm.scratch({ cmd = { "yarn", "build" } })
 		end, { bang = true })
-		vim.api.nvim_create_user_command("GitCommit", function()
+		vim.api.nvim_create_user_command("GitPush", function()
 			local Input = require("nui.input")
 			local event = require("nui.utils.autocmd").event
 			local create_input = function(title, prompt, on_close, on_submit)
@@ -64,7 +65,7 @@ return {
 				local git_commit_msg = create_input("[Git-commit-msg]", "commitMsg >", function()
 					print("Input commit msg closed!")
 				end, function(msg)
-					FTerm.run({ "gitcommit " .. src .. " '" .. msg .. "'" .. "\n git push" })
+					FTerm.run({ "gitcommit " .. src .. " '" .. msg .. "'" })
 					FTerm.toggle()
 					print("End of git Commit")
 				end)
