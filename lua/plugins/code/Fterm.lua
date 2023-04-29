@@ -16,6 +16,9 @@ return {
 				width = 0.6,
 			},
 		})
+		vim.api.nvim_create_user_command("Gitui", function()
+			require("FTerm").scratch({ cmd = "gitui" })
+		end, { bang = true })
 		vim.api.nvim_create_user_command("YarnBuild", function()
 			require("FTerm").scratch({ cmd = { "yarn", "build" } })
 		end, { bang = true })
