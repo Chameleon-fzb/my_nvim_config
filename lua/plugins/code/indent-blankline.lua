@@ -1,6 +1,7 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
 	event = "BufRead",
+	enabled = false,
 	config = function()
 		vim.g.indent_blankline_context_char = "▎"
 		require("indent_blankline").setup({
@@ -14,32 +15,6 @@ return {
 			show_end_of_line = true,
 			char = "▎",
 			context_char = "▎",
-			-- context_patterns = {
-			-- 	"class",
-			-- 	"function",
-			-- 	"method",
-			-- 	"element",
-			-- 	"^if",
-			-- 	"^while",
-			-- 	"^for",
-			-- 	"^object",
-			-- 	"^table",
-			-- 	"block",
-			-- 	"arguments",
-			-- },
-			-- -- :echo &filetype
-			-- filetype_exclude = {
-			-- 	"dashboard",
-			-- 	"packer",
-			-- 	"terminal",
-			-- 	"help",
-			-- 	"log",
-			-- 	"markdown",
-			-- 	"TelescopePrompt",
-			-- 	"lsp-installer",
-			-- 	"lspinfo",
-			-- 	"toggleterm",
-			-- },
 		})
 	end,
 }
