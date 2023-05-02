@@ -8,7 +8,7 @@ opt.background = "dark" --dark light
 -- 真色支持
 opt.termguicolors = true
 -- 禁止折行
-opt.wrap = true
+opt.wrap = false
 -- 光标在行首尾时<Left><Right>可以跳到下一行
 opt.whichwrap = "<,>,[,]"
 -- 补全增强
