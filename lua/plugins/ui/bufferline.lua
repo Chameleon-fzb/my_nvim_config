@@ -22,13 +22,13 @@ return {
 	},
 	opts = {
 		options = {
-			always_show_bufferline = false,
+			-- always_show_bufferline = false,
 			mode = "buffers",
 			numbers = function(opts)
 				local tmpid = opts.ordinal > 9 and 10 or opts.ordinal
 				-- local icons = {"೧", "೨", "೩", "೪", "೫", "೬", "೭", "೮", "೯", ""}
-				local icons = { "1", "2", "3", "4", "5", "6", "7", "8", "", "" }
-				return icons[tmpid] --        
+				local icons = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "󰿮" }
+				return icons[tmpid]
 			end,
 			-- 关闭 Tab 的命令，这里使用 moll/vim-bbye 的 :Bdelete 命令
 			close_command = "Bdelete! %d",
@@ -39,7 +39,7 @@ return {
 				icons = "",
 				style = "underline",
 			},
-			buffer_close_icon = "",
+			buffer_close_icon = "󰖭",
 			-- 左侧让出 nvim-tree 的位置，显示文字
 			offsets = {
 				{

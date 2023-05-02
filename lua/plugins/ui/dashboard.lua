@@ -116,17 +116,17 @@ return {
 						action = "Telescope oldfiles",
 					},
 					{
-						icon = "    ",
+						icon = "󰈞    ",
 						desc = "Find file                           ",
 						action = "Telescope find_files",
 					},
 					{
-						icon = "    ",
+						icon = "    ",
 						desc = "Ranger                              ",
 						action = "RnvimrToggle",
 					},
 					{
-						icon = "    ",
+						icon = "    ",
 						desc = "Edit keybindings                    ",
 						action = "edit ~/.config/nvim/lua/keybindings.lua",
 					},
