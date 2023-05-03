@@ -10,8 +10,10 @@ return {
 	},
 	config = function()
 		local nvim_lsp = require("lspconfig")
-		local M = require("plugins.lsp.config.M")
-		for name, config in pairs(M) do
+		local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+		local C = require("plugins.lsp.config.M").Clients
+		for name, config in pairs(C) do
+			config.capabilities = capabilities
 			nvim_lsp[name].setup(config)
 		end
 		vim.diagnostic.config({
@@ -19,10 +21,5 @@ return {
 			signs = true,
 			update_in_insert = true,
 		})
-		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-		end
 	end,
 }

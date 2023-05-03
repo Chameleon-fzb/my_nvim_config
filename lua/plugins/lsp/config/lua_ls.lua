@@ -2,8 +2,7 @@
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
-local on_attach = require("plugins.lsp.config.on_attach")
-local lua = {
+return {
 	settings = {
 		Lua = {
 			runtime = {
@@ -30,8 +29,4 @@ local lua = {
 	flags = {
 		debounce_text_changes = 150,
 	},
-	on_attach = on_attach,
 }
-
--- 查看目录等信息
-return lua

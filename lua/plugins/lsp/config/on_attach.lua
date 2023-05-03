@@ -1,10 +1,22 @@
-local on_attach = function(client, bufnr)
-   -- 禁用格式化功能，交给专门插件插件处理
---client.server_capabilities.document_formatting = false-- 0.7 and earlier
---client.server_capabilities.document_range_formatting = false
-client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
-   local function buf_set_keymap(...)
-          vim.api.nvim_buf_set_keymap(bufnr, ...)
-   end
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		-- 过滤只有null_ls可以接收格式化请求
+		filter = function(client)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
 end
-return on_attach
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+return function(client, bufnr)
+	if client.supports_method("textDocument/formatting") then
+		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			group = augroup,
+			buffer = bufnr,
+			callback = function()
+				lsp_formatting(bufnr)
+			end,
+		})
+	end
+end

@@ -12,34 +12,9 @@ return {
 		"L3MON4D3/LuaSnip",
 	},
 	config = function()
-		local kind_icons = {
-			Text = "󰊄",
-			Method = "",
-			Function = "󰊕",
-			Constructor = "⌘",
-			Field = "",
-			Variable = "",
-			Class = "",
-			Interface = "",
-			Module = "",
-			Property = "",
-			Unit = "",
-			Value = "",
-			Enum = "",
-			Keyword = "",
-			Snippet = "",
-			Color = "",
-			File = "",
-			Reference = "",
-			Folder = "",
-			EnumMember = "",
-			Constant = "",
-			Struct = "",
-			Event = "",
-			Operator = "",
-			TypeParameter = "",
-		}
+		local kind_icons = require("plugins.lsp.config.M").CmpIcons
 		local cmp = require("cmp")
+		---@diagnostic disable-next-line
 		cmp.setup({
 			-- 注释时禁止lspcmp
 			enabled = function()

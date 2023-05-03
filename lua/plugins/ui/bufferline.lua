@@ -26,7 +26,6 @@ return {
 			mode = "buffers",
 			numbers = function(opts)
 				local tmpid = opts.ordinal > 9 and 10 or opts.ordinal
-				-- local icons = {"೧", "೨", "೩", "೪", "೫", "೬", "೭", "೮", "೯", ""}
 				local icons = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "󰿮" }
 				return icons[tmpid]
 			end,
@@ -50,12 +49,12 @@ return {
 				},
 			},
 			diagnostics = "nvim_lsp",
-			-- 可选，显示 LSP 报错图标是
 			---@diagnostic disable-next-line: unused-local
 			diagnostics_indicator = function(count, level, diagnostics_dict, context)
+				local Signs = require("plugins.lsp.config.M").Signs
 				local s = " "
 				for e, n in pairs(diagnostics_dict) do
-					local sym = e == "error" and " " or (e == "warning" and " " or "i")
+					local sym = e == "error" and Signs.Error or (e == "warning" and Signs.Warn or Signs.Info)
 					s = s .. n .. sym
 				end
 				return s

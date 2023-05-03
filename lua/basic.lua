@@ -93,3 +93,9 @@ opt.undofile = true
 opt.wildmode = "longest:full,full"
 -- Fix markdown indentation settings
 g.markdown_recommended_style = 0
+
+local Signs = require("plugins.lsp.config.M").Signs
+for type, icon in pairs(Signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
