@@ -1,7 +1,7 @@
 -- todo
 return {
 	"folke/todo-comments.nvim",
-	event = "BufRead",
+	event = { "BufRead", "BufNewFile" },
 	cmd = { "TodoTrouble", "TodoQuickFix", "TodoLocList", "TodoTelescope" },
 	keys = {
 		{
