@@ -69,7 +69,7 @@ return {
 					{
 						"fileformat",
 						symbols = {
-							unix = " ArchLinux",
+							unix = " Arch",
 							dos = " ",
 							mac = " ",
 						},
