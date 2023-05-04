@@ -9,7 +9,7 @@ return {
 		local diagnostics = builtins.diagnostics
 		---@diagnostic disable-next-line: unused-local
 		local code_actions = builtins.code_actions
-		local on_attach = require("plugins.lsp.config.on_attach")
+		local on_attach = require("plugins.lsp.config.M").on_attach
 		null_ls.setup({
 			debug = false,
 			sources = {
