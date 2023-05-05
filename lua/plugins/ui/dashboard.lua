@@ -83,11 +83,11 @@ return {
 				[[]],
 				[[]],
 				[[]],
-				[[             ▄█          █          █▄             ]],
-				[[           ▐██      ▄█  ███  █▄      ██▌           ]],
-				[[          ▐██▌     █████████████     ▐██▌          ]],
-				[[          ████    ███████████████     ████         ]],
-				[[+--------------------------+--------------------------+]],
+				[[               ▄█          █          █▄             ]],
+				[[             ▐██      ▄█  ███  █▄      ██▌           ]],
+				[[            ▐██▌     █████████████     ▐██▌          ]],
+				[[            ████    ███████████████     ████         ]],
+				[[+----------------------------+--------------------------+]],
 			}
 			local week = week_ascii_text()
 			local daysoftheweek = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" }
@@ -116,7 +116,7 @@ return {
 						action = "Telescope oldfiles",
 					},
 					{
-						icon = "󰈞    ",
+						icon = "    ",
 						desc = "Find file                           ",
 						action = "Telescope find_files",
 					},
@@ -126,22 +126,22 @@ return {
 						action = "RnvimrToggle",
 					},
 					{
-						icon = "    ",
+						icon = "    ",
 						desc = "Edit keybindings                    ",
 						action = "edit ~/.config/nvim/lua/keybindings.lua",
 					},
 					{
-						icon = "    ",
+						icon = "    ",
 						desc = "Edit Projects                       ",
 						action = "edit ~/.local/share/nvim/project_nvim/project_history",
 					},
 					{
-						icon = "    ",
+						icon = "    ",
 						desc = "Edit .zshrc                        ",
 						action = "edit ~/.zshrc",
 					},
 					{
-						icon = "    ",
+						icon = "    ",
 						desc = "Edit init.lua                       ",
 						action = "edit ~/.config/nvim/init.lua",
 					},
