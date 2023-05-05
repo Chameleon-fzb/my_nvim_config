@@ -1,4 +1,4 @@
-local opts = require("autocmd.options")
+local opts = require("autocmd.M").options
 local function loadCmd(cmd, conf)
 	require("autocmd." .. cmd)(conf)
 end

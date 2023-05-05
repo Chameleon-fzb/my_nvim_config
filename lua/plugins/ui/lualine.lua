@@ -40,13 +40,27 @@ return {
 						"filename",
 						color = { fg = "#d08f70" },
 					},
-					{
-						require("noice").api.statusline.mode.get,
-						cond = require("noice").api.statusline.mode.has,
-						color = { fg = "#ff9e64" },
-					},
 				},
 				lualine_x = {
+					{
+						function()
+							return require("noice").api.status.command.get()
+						end,
+						cond = function()
+							return package.loaded["noice"] and require("noice").api.status.command.has()
+						end,
+						color = { fg = "#a3be8c" },
+					},
+					{
+						function()
+							return require("noice").api.status.mode.get()
+						end,
+						cond = function()
+							return package.loaded["noice"] and require("noice").api.status.mode.has()
+						end,
+						color = { fg = "#a3be8c" },
+					},
+
 					{
 						"progress",
 						color = { fg = "#d08f70" },
@@ -70,13 +84,15 @@ return {
 						"fileformat",
 						symbols = {
 							unix = " Arch",
-							dos = " ",
-							mac = " ",
+							dos = " Win",
+							mac = " Mac",
 						},
-						color = { fg = "#88c0d0" },
+						padding = { left = 1, right = 1 },
 					},
 				},
-				lualine_z = { "location" },
+				lualine_z = {
+					"location",
+				},
 			},
 		}
 	end,

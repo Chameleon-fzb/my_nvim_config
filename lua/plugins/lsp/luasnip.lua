@@ -1,7 +1,7 @@
 return {
 	"L3MON4D3/LuaSnip",
 	lazy = true,
-	version = "<CurrentMajor>.*",
+	-- version = "<CurrentMajor>.*",
 	build = "make install_jsregexp",
 	opts = {
 		history = true,

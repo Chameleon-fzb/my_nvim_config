@@ -6,6 +6,7 @@ return {
 		local null_ls = require("null-ls")
 		local builtins = null_ls.builtins
 		local formatting = builtins.formatting
+		---@diagnostic disable-next-line: unused-local
 		local diagnostics = builtins.diagnostics
 		---@diagnostic disable-next-line: unused-local
 		local code_actions = builtins.code_actions
@@ -41,7 +42,7 @@ return {
 						"handlebars",
 					},
 				}),
-				diagnostics.eslint_d,
+				-- diagnostics.eslint_d,
 				--code_actions.eslint_d,
 				--code_actions.gitsigns,
 				-- code_actions.eslint.with({
