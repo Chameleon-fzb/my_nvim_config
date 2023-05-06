@@ -39,9 +39,6 @@ end
 n("Q", ":qa!<CR>")
 -- 退出当前模式
 all("jk", "<esc>", "n")
--- 注释
--- n("<C-/>", "gcc")
-
 -- 保存 n v i 模式下保存
 all("<C-s>", ":w<CR>")
 -- 使用 <A-U> 将光标所在单词转化为全大写
@@ -101,9 +98,6 @@ n("<C-l>", "$")
 
 -- 在visual 模式里粘贴不要复制
 v("p", '"_dP')
--- 复制和粘贴
--- all("<C-c>", "yy")
--- all("<C-v>", "p")
 
 function vim.fn.ExecuteMacroOverVisualRange()
 	vim.api.nvim_echo({ { "@" .. vim.fn.getcmdline() } }, false, {})
