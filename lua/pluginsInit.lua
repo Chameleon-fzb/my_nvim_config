@@ -17,6 +17,7 @@ require("lazy").setup({
 		{ import = "plugins.files" },
 		{ import = "plugins.code" },
 		{ import = "plugins.lsp" },
+		{ import = "plugins.utils" },
 	},
 	install = {
 		-- install missing plugins on startup. This doesn't increase startup time.
