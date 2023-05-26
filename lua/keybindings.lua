@@ -39,9 +39,6 @@ end
 n("Q", ":qa!<CR>")
 -- 退出当前模式
 all("jk", "<esc>", "n")
--- 注释
--- n("<C-/>", "gcc")
-
 -- 保存 n v i 模式下保存
 all("<C-s>", ":w<CR>")
 -- 使用 <A-U> 将光标所在单词转化为全大写
@@ -91,7 +88,15 @@ v(">", ">gv")
 -- 上下移动选中文本
 v("J", ":move '>+1<CR>gv-gv")
 v("K", ":move '<-2<CR>gv-gv")
-
+-- 选中单词
+v("w", "aw")
+-- 选中一个段落
+v("s", "as")
+-- 选中一行
+v("r", "<esc>0vg_")
+all("<enter><enter>", "v<esc>0vg_", "v")
+-- 正常模式下yy复制会复制换行符,取消复制换行符
+-- n("yy", "0vg_y<esc>")
 -- insert 模式下，跳到行首行尾
 i("<C-h>", e .. "I")
 i("<C-l>", e .. "A")
@@ -101,9 +106,6 @@ n("<C-l>", "$")
 
 -- 在visual 模式里粘贴不要复制
 v("p", '"_dP')
--- 复制和粘贴
--- all("<C-c>", "yy")
--- all("<C-v>", "p")
 
 function vim.fn.ExecuteMacroOverVisualRange()
 	vim.api.nvim_echo({ { "@" .. vim.fn.getcmdline() } }, false, {})
@@ -119,7 +121,6 @@ map("x", "@", micro, opt)
 local pluginKeys = {}
 
 -- nvim-tree
-
 -- 列表快捷键
 pluginKeys.nvimTreeList = {
 	-- 打开文件或文件夹

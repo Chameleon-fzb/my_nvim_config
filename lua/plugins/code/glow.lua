@@ -1,7 +1,7 @@
 return {
 	"ellisonleao/glow.nvim",
 	event = "BufRead",
-	enable = false,
+	enabled = false,
 	opts = {
 		style = "dark",
 		width = 120,

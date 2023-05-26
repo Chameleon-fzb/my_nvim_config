@@ -45,9 +45,9 @@ return {
 		-- Code action
 		keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
 		-- 重命变量名
-		keymap("n", "<leader>r", "<cmd>Lspsaga rename<CR>")
+		keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>")
 		-- 重命名 项目中所有引入该变量的名字
-		keymap("n", "<leader>r", "<cmd>Lspsaga rename ++project<CR>")
+		keymap("n", "<leader>rn", "<cmd>Lspsaga rename ++project<CR>")
 		-- 查看其它代码
 		keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
 		-- Go to definition

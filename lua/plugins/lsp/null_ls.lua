@@ -42,8 +42,8 @@ return {
 						"handlebars",
 					},
 				}),
-				-- diagnostics.eslint_d,
-				--code_actions.eslint_d,
+				diagnostics.eslint_d,
+				-- code_actions.eslint_d,
 				--code_actions.gitsigns,
 				-- code_actions.eslint.with({
 				-- }),
