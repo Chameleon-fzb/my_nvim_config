@@ -123,7 +123,7 @@ return {
 					{
 						icon = "    ",
 						desc = "Ranger                              ",
-						action = "RnvimrToggle",
+						action = "Ranger",
 					},
 					{
 						icon = "    ",
