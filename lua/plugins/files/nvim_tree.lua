@@ -7,7 +7,7 @@ return {
 	tag = "nightly",
 	event = "VeryLazy",
 	keys = {
-		{ "<A-m>", ":NvimTreeToggle<CR>", desc = "NvimTreeToggle" },
+		{ "<A-m>", "<Cmd>NvimTreeToggle<CR>", desc = "NvimTreeToggle" },
 	},
 	config = function()
 		vim.g.loaded = 1
@@ -15,7 +15,7 @@ return {
 		local nvim_tree = require("nvim-tree")
 
 		-- 列表操作快捷键
-		local list_keys = require("keybindings").nvimTreeList
+		local list_keys = require("keybindings.pluginkeys").nvimTree_keys_list
 		nvim_tree.setup({
 			-- 不显示 git 状态图标
 			git = {
@@ -62,14 +62,26 @@ return {
 				},
 			},
 		})
-		vim.api.nvim_create_autocmd({ "QuitPre" }, {
+		-- vim.api.nvim_create_autocmd({ "QuitPre" }, {
+		-- 	callback = function()
+		-- 		vim.cmd("NvimTreeClose")
+		-- 	end,
+		-- })
+		vim.api.nvim_create_autocmd("QuitPre", {
 			callback = function()
-				vim.cmd("NvimTreeClose")
-			end,
+				local invalid_win = {}
+				local wins = vim.api.nvim_list_wins()
+				for _, w in ipairs(wins) do
+					local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
+					if bufname:match("NvimTree_") ~= nil then
+						table.insert(invalid_win, w)
+					end
+				end
+				if #invalid_win == #wins - 1 then
+					-- Should quit, so we close all invalid windows.
+					for _, w in ipairs(invalid_win) do vim.api.nvim_win_close(w, true) end
+				end
+			end
 		})
-		----自动关闭
-		-- vim.cmd([[
-		--     autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-		-- ]])
 	end,
 }

@@ -19,6 +19,11 @@ return {
 		{ "<leader>p", "<Cmd>BufferLineTogglePin<CR>", { desc = "Pin Buffer" } },
 		{ "<leader>d", "<Cmd>bdelete<CR>", { desc = "Delete Current Buf" } },
 		{ "<leader>s", "<Cmd>BufferLinePick<CR>", { desc = "Pick Buffer" } },
+		{
+			"<leader>da",
+			"<Cmd>BufferLineCloseLeft<CR><Cmd>BufferLineCloseRight<CR>",
+			{ desc = "Del all Buf, keep current Buf" },
+		},
 	},
 	opts = {
 		options = {

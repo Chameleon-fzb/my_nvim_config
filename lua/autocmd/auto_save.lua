@@ -8,23 +8,17 @@ return function(conf)
 			timer = false
 		end
 	end
-	vim.api.nvim_create_autocmd(events, {
-		pattern = { "*" },
-		callback = function()
-			clear_timer()
-			timer = vim.loop.new_timer()
-			timer:start(
-				delay,
-				0,
-				vim.schedule_wrap(function()
-					vim.cmd("silent! wall")
-				end)
-			)
-		end,
-		-- nested = true,
-	})
-	vim.api.nvim_create_autocmd({ "InsertEnter" }, {
-		pattern = { "*" },
-		callback = clear_timer,
-	})
+	local autocmd = require("utils").autocmd
+	autocmd(events, function()
+		clear_timer()
+		timer = vim.loop.new_timer()
+		timer:start(
+			delay,
+			0,
+			vim.schedule_wrap(function()
+				vim.cmd("silent! wall")
+			end)
+		)
+	end)
+	autocmd({ "InsertEnter" }, clear_timer)
 end

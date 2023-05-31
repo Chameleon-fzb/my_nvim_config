@@ -10,3 +10,4 @@ return {
 		vim.keymap.set({ "x", "o", "n" }, "W", "<Plug>(leap-from-window)")
 	end,
 }
+ 

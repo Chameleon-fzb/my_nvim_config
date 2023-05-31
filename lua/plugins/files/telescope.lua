@@ -31,6 +31,7 @@ return {
 	},
 	config = function()
 		local telescope = require("telescope")
+		local mappings = require("keybindings.pluginkeys").telescope_keys_list
 		telescope.setup({
 			defaults = {
 				file_ignore_patterns = { "^./.git/", "^node_modules/", "^./fcitx5-sogou-themes/" },
@@ -68,7 +69,7 @@ return {
 					flex = { horizontal = { preview_width = 0.9 } },
 				},
 				-- 窗口内快捷键
-				mappings = require("keybindings").telescopeList,
+				mappings = mappings,
 			},
 			pickers = {
 				-- 内置 pickers 配置
