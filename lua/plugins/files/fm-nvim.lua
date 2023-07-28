@@ -1,8 +1,8 @@
 return {
 	"is0n/fm-nvim",
-	-- enabled = false,
+	enabled = false,
 	event = "VeryLazy",
-	keys = { { "<leader>f", "<cmd>Ranger<cr>" } },
+	-- keys = { { "<leader>f", "<cmd>Ranger<cr>" } },
 	config = function()
 		require("fm-nvim").setup({
 			-- (Vim) Command used to open files

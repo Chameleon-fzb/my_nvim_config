@@ -61,6 +61,14 @@
       {
         "language": "typescript",
         "path": "./snippets/nuxt-config.json"
+      },
+      {
+        "language": "vue-html",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "vue-html",
+        "path": "./snippets/element-ui.json"
       }
     ]
   }

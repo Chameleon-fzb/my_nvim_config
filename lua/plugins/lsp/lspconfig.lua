@@ -17,7 +17,7 @@ return {
 			config.capabilities = capabilities
 			nvim_lsp[name].setup(config)
 		end
-		require("typescript").setup({})
+		-- require("typescript").setup({})
 		vim.diagnostic.config({
 			virtual_text = true,
 			signs = true,

@@ -43,15 +43,14 @@ return {
 						"handlebars",
 					},
 				}),
-				-- formatting.prettierd,
 				diagnostics.eslint_d,
 				code_actions.eslint_d,
+				diagnostics.stylelint,
+				formatting.stylelint,
 				--code_actions.gitsigns,
-				-- code_actions.eslint.with({
-				-- }),
 			},
 			diagnostics_format = "[#{c}] #{m} (#{s})",
-			require("typescript.extensions.null-ls.code-actions"),
+			-- require("typescript.extensions.null-ls.code-actions"),
 			on_attach = on_attach,
 		})
 	end,
